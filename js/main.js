@@ -40,20 +40,28 @@ function consultarAPI(city, country){
 }
 
 function mostrarClima(data){
-    const {name, main:{temp, temp_min, temp_max}, weather:[arr]} = data
+    console.log(data)
+    const {name, main:{temp, temp_min, temp_max, feels_like}, weather, weather: [arr] } = data;
+
+    const descripcion = arr["description"]
 
     const degrees = kelvinToCentigrade(temp)
     const min = kelvinToCentigrade(temp_min)
     const max = kelvinToCentigrade(temp_max)
+    const sensacion = kelvinToCentigrade(feels_like)
 
     const content = document.createElement('div')
     content.innerHTML = `
-        <h5>Clima en ${name}</h5>
+        <h5>Weather in ${name}</h5>
         <h2>${degrees}°C</h2>
         <p>Max: ${max}°C</p>
         <p>Min: ${min}°C</p>
+        <p>Feels like: ${sensacion}°C</p>
     `
-    document.querySelector('.content-imagen').innerHTML =` <img src="https://openweathermap.org/img/wn/${arr.icon}@2x.png" alt="icon">`
+    document.querySelector('.content-imagen').innerHTML =` 
+    <p>${descripcion}</p>
+    <img src="https://openweathermap.org/img/wn/${arr.icon}@2x.png" alt="icon">
+    `
 
     divResultado.appendChild(content)
 }

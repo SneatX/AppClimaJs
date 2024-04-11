@@ -40,6 +40,7 @@ body{
 }
 
 .weather-content  h1{
+    text-align: center;
     font-size: 4vw;
     text-shadow: 
     -1px -1px 0 white,
@@ -109,4 +110,10 @@ form  button:hover{
 
 .content-imagen img{
     width:40%;
+}
+
+.content-imagen p{
+    font-size: 3.5vw;
+    text-align: center;
+    padding: 20px;
 }
