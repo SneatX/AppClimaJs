@@ -33,9 +33,11 @@ body{
     justify-content: center;
     border-radius: 50px;
     background-color: #ffffff5b;
+    backdrop-filter: blur(5px);
+    position: relative;
 }
 
-.content-buscador{
+.container__buscador{
     gap: 3vw;
 }
 
@@ -78,18 +80,24 @@ form  button:hover{
     transition: .2s;
 }
 
-.content-result{
-    text-align: center;
-    padding: 0 20px;
+form p{
+    font-size: 1.5em;
+    position: absolute;
+    bottom: 12px;
 }
 
-.content-result div{
+.container__result{
+    text-align: center;
+    padding: 0 30px;
+}
+
+.container__result div{
     display: flex;
     flex-direction: column;
     gap: 1.5vw;
 }
 
-.content-result h5{
+.container__result h5{
     font-size: 3.5vw;
     color: black;
      text-shadow: 
@@ -99,7 +107,7 @@ form  button:hover{
       1px  1px 0 white;
 }
 
-.content-result h2, p{
+.container__result h2, p{
     font-size: 2.5vw;
     color: white;
     text-shadow: 
@@ -109,11 +117,11 @@ form  button:hover{
      1px  1px 0 black;
 }
 
-.content-imagen img{
+.container__imagen img{
     width:40%;
 }
 
-.content-imagen p{
+.container__imagen p{
     font-size: 3.5vw;
     text-align: center;
     padding: 20px;

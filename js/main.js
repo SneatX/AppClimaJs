@@ -1,4 +1,4 @@
-const divResultado = document.querySelector('.content-result')
+const divResultado = document.querySelector('.container__result')
 const form = document.querySelector('.get-weather')
 const ciudad = document.querySelector('#city')
 const pais = document.querySelector('#country')
@@ -58,7 +58,7 @@ function mostrarClima(data){
         <p>Min: ${min}°C</p>
         <p>Feels like: ${sensacion}°C</p>
     ` 
-    document.querySelector('.content-imagen').innerHTML =` 
+    document.querySelector('.container__imagen').innerHTML =` 
     <p>${descripcion}</p>
     <img src="https://openweathermap.org/img/wn/${icono}@2x.png">
     `
