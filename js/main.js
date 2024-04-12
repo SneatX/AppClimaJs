@@ -15,8 +15,16 @@ form.addEventListener('submit', (e) => {
         return
     }
 
+    generarCuadros()
     consultarAPI(ciudad.value, pais.value)
 })
+
+function generarCuadros(){
+    document.querySelector(".container").style.gridTemplateColumns = "1fr 1fr 1fr"
+    document.querySelector(".container__result").style.display = "flex"
+    document.querySelector(".container__imagen").style.display = "flex"
+
+}
 
 function consultarAPI(city, pais){
     const apiId = '41d1d7f5c2475b3a16167b30bc4f265c';

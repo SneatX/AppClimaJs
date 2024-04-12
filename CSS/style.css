@@ -20,7 +20,7 @@ body{
 
 .container{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     grid-gap: 1vw;
 }
 
@@ -87,6 +87,7 @@ form p{
 }
 
 .container__result{
+    display: none;
     text-align: center;
     padding: 0 30px;
 }
@@ -115,6 +116,10 @@ form p{
      1px -1px 0 black,
     -1px  1px 0 black,
      1px  1px 0 black;
+}
+
+.container__imagen{
+    display: none;
 }
 
 .container__imagen img{
