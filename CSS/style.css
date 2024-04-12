@@ -18,13 +18,13 @@ body{
     justify-content: center;
 }
 
-.weather-content{
+.container{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 1vw;
 }
 
-.weather-content > *{
+.container > *{
     height: 30vw;
     width: 30vw;
     display: flex;
@@ -39,7 +39,7 @@ body{
     gap: 3vw;
 }
 
-.weather-content  h1{
+.container  h1{
     text-align: center;
     font-size: 4vw;
     text-shadow: 
@@ -79,7 +79,8 @@ form  button:hover{
 }
 
 .content-result{
-    text-align: center
+    text-align: center;
+    padding: 0 20px;
 }
 
 .content-result div{

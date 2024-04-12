@@ -18,9 +18,9 @@ form.addEventListener('submit', (e) => {
     consultarAPI(ciudad.value, pais.value)
 })
 
-function consultarAPI(city, country){
+function consultarAPI(city, pais){
     const apiId = '41d1d7f5c2475b3a16167b30bc4f265c';
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${apiId}`
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city},${pais}&appid=${apiId}`
 
     fetch(url)
         .then(data => {
@@ -41,33 +41,31 @@ function consultarAPI(city, country){
 
 function mostrarClima(data){
     console.log(data)
-    const {name, main:{temp, temp_min, temp_max, feels_like}, weather, weather: [arr] } = data;
+    let {name, main:{temp, temp_min, temp_max, feels_like}, weather: [arr] } = data;
 
-    const descripcion = arr["description"]
+    let descripcion = arr["description"]
+    let icono = arr["icon"]
 
-    const degrees = kelvinToCentigrade(temp)
-    const min = kelvinToCentigrade(temp_min)
-    const max = kelvinToCentigrade(temp_max)
-    const sensacion = kelvinToCentigrade(feels_like)
+    let tempActual = kelvinToCentigrade(temp)
+    let min = kelvinToCentigrade(temp_min)
+    let max = kelvinToCentigrade(temp_max)
+    let sensacion = kelvinToCentigrade(feels_like)
 
-    const content = document.createElement('div')
-    content.innerHTML = `
+    divResultado.innerHTML =`
         <h5>Weather in ${name}</h5>
-        <h2>${degrees}°C</h2>
+        <h2>${tempActual}°C</h2>
         <p>Max: ${max}°C</p>
         <p>Min: ${min}°C</p>
         <p>Feels like: ${sensacion}°C</p>
-    `
+    ` 
     document.querySelector('.content-imagen').innerHTML =` 
     <p>${descripcion}</p>
-    <img src="https://openweathermap.org/img/wn/${arr.icon}@2x.png" alt="icon">
+    <img src="https://openweathermap.org/img/wn/${icono}@2x.png">
     `
-
-    divResultado.appendChild(content)
 }
 
 function mostrarError(message){
-    const alert = document.createElement('p')
+    let alert = document.createElement('p')
     alert.classList.add('alert-message')
     alert.innerHTML = message
 
